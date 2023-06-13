@@ -183,8 +183,7 @@ export class GLPerf {
         if (window.performance && this.startCpuProfiling) {
           window.performance.mark('cpu-finished')
           const cpuMeasure = performance.measure('cpu-duration', 'cpu-started', 'cpu-finished')
-          // fix cpuMeasure return null in ios
-          this.currentCpu = cpuMeasure?.duration || 0;
+          this.currentCpu = cpuMeasure.duration
 
           this.logsAccums.cpu.push(this.currentCpu)
           // make sure the measure has started and ended
